@@ -1,0 +1,389 @@
+/* ==================================== */
+/* 1. VARIBEL & TEMA WARNA (DARK BLUE) */
+/* ==================================== */
+:root {
+  --primary: #1e3a8a; /* biru tua */
+  --secondary: #3b82f6; /* biru cerah untuk gradien */
+  --accent: #60a5fa; /* aksen biru muda */
+  --bg-gradient-start: #0f172a; /* Sangat gelap, hampir hitam */
+  --bg-gradient-end: #1e293b; /* Biru gelap */
+  --text-primary: #f8fafc; /* putih terang */
+  --text-secondary: #cbd5e1; /* abu biru */
+  --white: #ffffff;
+  --shadow: rgba(30, 58, 138, 0.3);
+  --glow: rgba(96, 165, 250, 0.6);
+  --danger: #ef4444;
+}
+
+/* ==================================== */
+/* 2. STRUKTUR DASAR & TEMA BODY */
+/* ==================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* TEMA: Latar Belakang Gradien Gelap */
+    background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%); 
+    color: var(--text-primary); 
+    overflow: hidden; 
+}
+
+/* Container Utama */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Wrapper Chat */
+.chat-wrapper {
+    width: 90%;
+    max-width: 400px;
+    height: 90%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Shadow lebih menonjol */
+    background-color: var(--bg-gradient-end); /* Warna dasar wrapper agak gelap */
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* ==================================== */
+/* 3. HEADER & AVATAR */
+/* ==================================== */
+.chat-header {
+    /* TEMA: Header Gradien */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* TEMA: Header Shadow */
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-text h1 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.avatar-wrapper {
+    position: relative;
+    margin-right: 10px;
+}
+
+.avatar {
+    font-size: 1.5rem;
+}
+
+/* ==================================== */
+/* 4. PESAN & AREA CHAT */
+/* ==================================== */
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: var(--bg-gradient-end);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pesan Selamat Datang */
+.welcome-message {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: var(--text-secondary); /* Sesuaikan warna teks untuk tema gelap */
+}
+
+.welcome-message h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.welcome-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Tata Letak Pesan */
+.message {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-end;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.assistant {
+    justify-content: flex-start;
+}
+
+.message-avatar {
+    font-size: 1.2rem;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.message.user .message-avatar {
+    order: 2; 
+}
+
+.message-content {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bubble Pesan */
+.message-bubble {
+    padding: 10px 15px;
+    border-radius: 18px;
+    line-height: 1.4;
+    position: relative;
+}
+
+/* TEMA: Pesan Pengguna (Gradien) */
+.message.user .message-bubble {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: 2px solid var(--secondary);
+    border-bottom-right-radius: 4px;
+}
+
+/* TEMA: Pesan Asisten (Warna Solid Gelap) */
+.message.assistant .message-bubble {
+    background-color: #334155; 
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.message-footer {
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.message.user .message-footer {
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+
+.message.assistant .message-footer {
+    justify-content: flex-start;
+    margin-left: 15px;
+}
+
+/* Aksi Pesan (Edit/Hapus) */
+.message-actions {
+    margin-left: 8px;
+    display: none; 
+}
+
+.message:hover .message-actions {
+    display: block; 
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-left: 5px;
+}
+
+.btn-action:hover {
+    opacity: 1;
+}
+
+/* Loading/Typing Indicator */
+.loading {
+    display: flex;
+    align-items: center;
+}
+
+/* TEMA: Loading Bubble */
+.message-bubble.loading {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid var(--accent);
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 2px;
+    /* TEMA: Warna Dot */
+    background: var(--secondary);
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+/* Edit Message Styling */
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* TEMA: Edit Textarea */
+.edit-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 2px solid var(--secondary);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    resize: vertical;
+    background: #0f172a;
+    color: var(--text-primary);
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-save, .btn-cancel {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    transition: background-color 0.2s;
+    border: none;
+    color: var(--white);
+}
+
+/* TEMA: Save Button */
+.btn-save {
+    background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); 
+}
+
+/* TEMA: Cancel Button */
+.btn-cancel {
+    background: linear-gradient(135deg, var(--danger) 0%, #b91c1c 100%); 
+}
+
+
+/* ==================================== */
+/* 5. INPUT FORM */
+/* ==================================== */
+.chat-input-form {
+    padding: 10px 15px;
+    border-top: 1px solid var(--primary);
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    /* TEMA: Input Wrapper Gelap */
+    background-color: var(--bg-gradient-start); 
+    border-radius: 25px;
+    border: 1px solid var(--primary);
+    overflow: hidden;
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    /* TEMA: Input Transparan */
+    background-color: transparent; 
+    color: var(--text-primary);
+}
+
+/* TEMA: Send Button Gradien */
+.send-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    outline: none;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.send-button:hover:not(:disabled) {
+    background-color: #1c4b82;
+    box-shadow: 0 8px 25px var(--glow);
+}
+
+.send-button:disabled {
+    background-color: #334155;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ==================================== */
+/* 6. EFEK SAKURA */
+/* ==================================== */
+.sakura-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.sakura {
+    position: absolute;
+    font-size: 24px;
+    /* TEMA: Sakura Biru Muda */
+    color: var(--accent); 
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translate(0, -10vh) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(10vw, 100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
