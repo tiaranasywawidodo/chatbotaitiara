@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'ANSAL AI',
+  title: 'AITIARA',
   description: 'Chatbot AI yang ramah dan membantu',
 };
 
